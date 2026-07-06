@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Deo Juvante S. Segunto</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+/* --- Global Variables & Reset --- */
+:root {
+    --primary: #8a2be2; /* Trendy purple */
+    --primary-hover: #7220bd;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --bg-main: #f9f9fb;
+    --bg-section: #ffffff;
+    --border-radius: 8px;
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- Typography & Utilities --- */
+h1, h2, h3 {
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+.section {
+    padding: 80px 10%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.bg-light {
+    background-color: var(--bg-section);
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 12px 28px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    border: 2px solid var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* --- Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: var(--bg-main);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* --- Hero Section --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80vh;
+    padding: 0 10%;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.hero h2 {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.contact-info p {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.hero-image {
+    width: 40%;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 500px;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    overflow: hidden;
+}
+
+/* --- Grids for Skills & Projects --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.skill-card {
+    background: white;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.skill-card h3 {
+    margin-bottom: 10px;
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.skill-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    border-top: 4px solid var(--primary);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.project-info p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+/* --- Timeline (Experience & Education) --- */
+.timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    border-left: 3px solid var(--primary);
+    padding-left: 30px;
+}
+
+.timeline-item {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: var(--primary);
+    border-radius: 50%;
+    left: -39px;
+    top: 5px;
+}
+
+.date {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.experience-list {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: var(--text-light);
+}
+
+.experience-list li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--bg-section);
+    color: var(--text-light);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 40px;
+    }
+
+    .hero-content, .hero-image {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .hero-image {
+        margin-bottom: 40px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
+</style>
+<body>
+
+    <nav class="navbar">
+        <div class="logo"><span>Deo.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+        </ul>
+        <a href="mailto:seguntococmail@gmail.com" class="btn btn-primary">Let's Talk</a>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1><span class="highlight">Deo Juvante S. Segunto</span></h1>
+            <h2>IT Professional</h2>
+            <p>specialize in IT hardware, software, network infrastructure, and field deployments.</p>
+            
+            <div class="hero-buttons">
+                <a href="mailto:seguntococmail@gmail.com" class="btn btn-primary">Contact Me</a>
+                <a href="#projects" class="btn btn-outline">See Projects</a>
+            </div>
+
+            <div class="contact-info">
+                <p><strong>Phone:</strong> 09690290401</p>
+                <p><strong>Email:</strong> seguntococmail@gmail.com</p>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="image-placeholder">
+                <img src="your-image.jpg" alt="Deo Juvante S. Segunto" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section bg-light">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Networking</h3>
+                <p>Router, Switch & Access Point Configuration; Omada SDN; VLANs; TCP/IP; DHCP; DNS; LAN/WAN; Network Monitoring & Troubleshooting; Starlink Installation, Deployment & Support; Aruba Networks; Network Printers (HP, Canon, Xerox, Lexmark, Brother)</p>
+            </div>
+            <div class="skill-card">
+                <h3>Security</h3>
+                <p>Sophos Firewall; XDR; MDR; EDR; Endpoint Protection</p>
+            </div>
+            <div class="skill-card">
+                <h3>Operating Systems</h3>
+                <p>Windows (XP-11); Linux; macOS; VMware; VirtualBox; PowerShell; Bash</p>
+            </div>
+            <div class="skill-card">
+                <h3>Cloud</h3>
+                <p>AWS; Azure AD; Google Workspace</p>
+            </div>
+            <div class="skill-card">
+                <h3>Hardware & Remote Support</h3>
+                <p>PC & Laptop Setup, Maintenance, Troubleshooting & Repair; IT Asset Management; Structured Cabling. ServiceNow; N-able; TeamViewer; AnyDesk; VNC; Radmin.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Voice, Video, CCTV & POS</h3>
+                <p>AVAYA; Grandstream; Microsoft Teams Rooms; Zoom Rooms; Logitech Rally & MeetUp; Meeting Owl. Lilin CCTV; NCR Aloha POS; Posiflex.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <h3>IT Support Officer</h3>
+                <span class="date">DFNN Inc. | March 26, 2024 - Present</span>
+                <ul class="experience-list">
+                    <li>Provide technical support for IT hardware, software, and network infrastructure across multiple sites and field deployments</li>
+                    <li>Manage and maintain CCTV systems for secure monitoring and storage</li>
+                    <li>Administer Google Workspace and ensure company website performance and availability</li>
+                    <li>Oversee IT asset management, including inventory tracking and lifecycle control</li>
+                    <li>Lead Starlink satellite internet operations, including installation, configuration, troubleshooting, and optimization</li>
+                    <li>Supervise field deployment teams for multi-province Starlink rollouts in support of government connectivity initiatives</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>IT Onsite Support</h3>
+                <span class="date">Zenshin Corp. | May 16, 2024 - March 15, 2024</span>
+            </div>
+
+            <div class="timeline-item">
+                <h3>IT Onsite Support</h3>
+                <span class="date">Curo Teknika Inc | May 16, 2022 - March 15, 2023</span>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Technical Field Engineer</h3>
+                <span class="date">Unison Solutions Delivery Inc. | June 2021 - May 2022</span>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="projects" class="section bg-light">
+        <h2 class="section-title">Key Projects</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Starlink Connectivity Project for DepEd</h3>
+                    <p>Led deployment, installation, and troubleshooting of Starlink systems across multiple provinces to provide reliable internet connectivity for DepEd schools in far-flung areas, under the initiative of the Office of the President.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>IT Asset Management System</h3>
+                    <p>Designed and implemented a system for accurate asset tracking, lifecycle management, and inventory control.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Smart NFC Company ID System</h3>
+                    <p>Developed and deployed NFC-enabled employee ID cards integrated with digital profiles for secure identification.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Automated Meeting Room Booking System</h3>
+                    <p>Implemented a digital scheduling system to improve booking efficiency and resource utilization.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <h2 class="section-title">Education, Certifications & Training</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <h3>Bachelor of Science in Information Technology</h3>
+                <span class="date">Camarines Sur Polytechnic Colleges</span>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Computer Hardware Servicing NC II</h3>
+                <span class="date">2012 - 2014</span>
+            </div>
+
+            <div class="timeline-item">
+                <h3>CompTIA Security+ (SYO-701) Bootcamp</h3>
+                <span class="date">Udemy</span>
+            </div>
+
+            <div class="timeline-item">
+                <h3>AWS Certified Cloud Practitioner Training</h3>
+                <span class="date">Aws Skill Builder</span>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Deo Juvante S. Segunto. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
